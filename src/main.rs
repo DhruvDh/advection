@@ -3,7 +3,7 @@
 use std::time::Instant;
 
 /// the following function enacts the algorithm as specified in the assignment
-fn advection(N: usize, dt: f32) {
+fn advection(N: usize, dt: f32) -> f32 {
     let now = Instant::now(); // a time instant used for benchmarking
 
     let tmax = 2.0;
@@ -40,13 +40,20 @@ fn advection(N: usize, dt: f32) {
         u[N+2] = u[1]
     }
 
-    // measuring and printing elasped time
-    let time_taken = now.elapsed().as_secs_f32();
-    println!("N = {}, dt = {} took {} seconds", N, dt, time_taken);
+    // measuring and returing elasped time
+    now.elapsed().as_secs_f32()
 }
 
 /// a main function similar to java's or c's main()
 fn main() {
-    advection(103, 0.0009);   // Case 1: N = 103, dt = 0.0009
-    advection(1003, 0.00009); // Case 2: N = 1003, dt = 0.00009
+    // runs the calculations 10 tines in a loop and benchmarks for case 1
+    let case_1_results = (0..10).map(|_| advection(103, 0.0009))
+                                .fold(0.0, |sum, x| sum + x) / 10.0; 
+
+    // runs the calculations 10 tines in a loop and benchmarks for case 2
+    let case_2_results = (0..10).map(|_| advection(1003, 0.00009))
+                                .fold(0.0, |sum, x| sum + x) / 10.0; 
+        
+    println!("Average time taken for Case 1: N = 103, dt = 0.0009 over 10 runs is {} seconds", case_1_results);
+    println!("Average time taken for Case 2: N = 1003, dt = 0.00009 over 10 runs is {} seconds", case_2_results);
 }
