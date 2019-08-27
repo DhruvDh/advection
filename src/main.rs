@@ -1,6 +1,6 @@
 #![feature(non_ascii_idents)]
 
-ucarse std::time::Instant;
+use std::time::Instant;
 
 /// the following function enacts the algorithm as specified in the assignment
 fn advection(N: usize, dt: f32) {
