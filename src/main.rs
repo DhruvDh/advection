@@ -18,7 +18,7 @@ fn advection(N: usize, dt: f32) -> f32 {
     let α = v * dt/(2.0 * dx);
 
     let x: Vec<f32> = (0..=N+2)
-                            .map(|i| xmin + (i as f32 - 1.0))
+                            .map(|i| xmin + (i as f32 - 1.0) * dx)
                             .collect();
     
     let u0: Vec<f32> = (0..=N+2)
