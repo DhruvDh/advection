@@ -6,6 +6,7 @@
   - [Table of Contents](#table-of-contents)
   - [Code](#code)
   - [Results (Part 1)](#results-part-1)
+  - [Results (Part 2)](#results-part-2)
   - [Reproducing results (Part 1)](#reproducing-results-part-1)
     - [Via pre-compiled binaries](#via-pre-compiled-binaries)
     - [Compiling yourself](#compiling-yourself)
@@ -83,6 +84,15 @@ When compiled with the `--release` flag (which signals the compiler to produce a
 ```
 Average time taken for Case 1: N = 103, dt = 0.0009 over 10 runs is 0.00054672 seconds
 Average time taken for Case 2: N = 1003, dt = 0.00009 over 10 runs is 0.038205974 seconds
+```
+
+## Results (Part 2)
+
+When compiled with the `--release` flag (which signals the compiler to produce and optimised binary), the time taken is -
+
+```
+Average time taken for Case 1: N = 103, dt = 0.0009 over 10 runs is 0.00060271774 seconds
+Average time taken for Case 2: N = 1003, dt = 0.00009 over 10 runs is 0.04333093 seconds
 ```
 
 ## Reproducing results (Part 1)
